@@ -12,7 +12,7 @@ Il s'installe comme une appli et marche sans internet.
 - Toucher à côté : un petit « bloup » neutre, sans punition. Pas de chrono.
 - **Indice** : après **1 minute** sans rien trouver, un objet se met à briller
   et sa vignette se dandine.
-- Zoom à deux doigts, glisser à un doigt, bouton loupe pour revoir toute l'image.
+- L'image est **fixe** : pas de zoom ni de glissé avec les doigts.
 - Victoire : **feu d'artifice + fanfare** (mélodie originale), puis « Bravo Myrtille ! ».
 
 ## Les fichiers

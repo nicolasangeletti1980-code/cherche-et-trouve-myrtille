@@ -83,6 +83,7 @@ h1 span { color: var(--or); }
 /* ===== Le jeu ===== */
 #jeu {
   display: flex;
+  touch-action: none;       /* l'image est figée : pas de zoom avec les doigts */
   background: #1d3f23;
 }
 
@@ -91,7 +92,7 @@ h1 span { color: var(--or); }
   position: relative;
   flex: 1;
   overflow: hidden;
-  touch-action: none;       /* c'est nous qui gérons le zoom et le glissé */
+  touch-action: none;
 }
 .plateau {
   position: absolute;
@@ -163,7 +164,6 @@ h1 span { color: var(--or); }
 }
 .bouton-rond svg { width: 28px; height: 28px; fill: #2f6b3a; stroke: #2f6b3a; }
 .maison { left: max(8px, env(safe-area-inset-left)); top: 8px; }
-.zoom   { left: max(8px, env(safe-area-inset-left)); bottom: 8px; }
 
 /* ===== La liste des 12 objets à trouver (2 colonnes x 6 lignes) ===== */
 .liste {
@@ -171,10 +171,10 @@ h1 span { color: var(--or); }
   margin: 0;
   padding: 6px max(6px, env(safe-area-inset-right)) 6px 6px;
   display: grid;
-  /* --vignette est calculée par jeu.js : 6 vignettes tiennent dans la hauteur */
-  grid-template-columns: repeat(2, var(--vignette, 54px));
-  grid-template-rows: repeat(6, var(--vignette, 54px));
-  gap: 5px;
+  /* --vignette et --lignes sont calculées par jeu.js */
+  grid-template-columns: repeat(var(--colonnes, 2), var(--vignette, 54px));
+  grid-template-rows: repeat(var(--lignes, 6), var(--vignette, 54px));
+  gap: 4px;
   align-content: center;
   background: var(--fond-clair);
 }
@@ -183,8 +183,8 @@ h1 span { color: var(--or); }
   width: 100%;
   height: 100%;
   padding: 0;
-  border: 3px solid #fff;
-  border-radius: var(--rayon);
+  border: 2px solid #fff;
+  border-radius: 10px;
   overflow: hidden;
   background: #fff;
   box-shadow: 0 2px 0 rgba(0, 0, 0, .2);

@@ -1,5 +1,5 @@
 // Fichier fabriqué par outils/generer_donnees.py : ne pas modifier à la main.
-const NOM_COPIE = "cherche-trouve-562c592528";
+const NOM_COPIE = "cherche-trouve-67a12fa7a2";
 const FICHIERS = [
  "./",
  "./index.html",

@@ -14,7 +14,6 @@
   // ----- Les réglages -----
   const NOMBRE_A_TROUVER = 12;
   const DELAI_INDICE = 60;         // secondes sans trouver avant l'indice
-  const ZOOM_MAX = 5;
   const TOLERANCE_DOIGT = 14;      // pixels d'écran autour d'un objet qui comptent encore
   const CLE_DERNIERE_SCENE = "cherche-trouve-derniere-scene";
 
@@ -23,7 +22,7 @@
   const ecranAccueil = $("accueil"), ecranJeu = $("jeu");
   const cadre = $("cadre"), plateau = $("plateau"), calque = $("calque");
   const imageScene = $("image-scene"), liste = $("liste");
-  const boutonZoom = $("bouton-zoom"), bravo = $("bravo");
+  const bravo = $("bravo");
 
   // ----- L'état de la partie -----
   let theme = null;          // le thème choisi
@@ -186,133 +185,50 @@
     tailleVignettes();
   }
 
-  // 6 vignettes doivent tenir dans la hauteur de l'écran
+  // Les 12 vignettes : 2 colonnes x 6 lignes qui tiennent dans la hauteur
+  const COLONNES = 2;
   function tailleVignettes() {
-    const hauteur = window.innerHeight - 12 - 5 * 5;
-    const taille = Math.max(36, Math.min(96, Math.floor(hauteur / 6)));
+    const lignes = Math.ceil(aTrouver.length / COLONNES) || 6;
+    const hauteur = window.innerHeight - 12 - (lignes - 1) * 4;
+    const taille = Math.max(32, Math.min(90, Math.floor(hauteur / lignes)));
     liste.style.setProperty("--vignette", taille + "px");
+    liste.style.setProperty("--lignes", lignes);
+    liste.style.setProperty("--colonnes", COLONNES);
   }
 
   // ===================================================================
-  // 5. Le zoom et le déplacement de la scène
-  //    base : taille de la scène quand elle tient entière dans le cadre
-  //    zoom : 1 = toute la scène ; jusqu'à ZOOM_MAX
+  // 5. La scène est FIXE : elle tient entière dans le cadre, on ne peut
+  //    ni la grossir ni la déplacer avec les doigts. Seul le toucher compte.
   // ===================================================================
-  let base = 1, zoom = 1, dx = 0, dy = 0;
+  let base = 1;
 
   function ajuster() {
     tailleVignettes();
     const l = cadre.clientWidth, h = cadre.clientHeight;
     base = Math.min(l / scene.largeur, h / scene.hauteur);
-    plateau.style.width = scene.largeur * base + "px";
-    plateau.style.height = scene.hauteur * base + "px";
-    zoom = 1;
-    appliquer();
+    const pl = scene.largeur * base, ph = scene.hauteur * base;
+    plateau.style.width = pl + "px";
+    plateau.style.height = ph + "px";
+    plateau.style.transform = "translate(" + (l - pl) / 2 + "px," + (h - ph) / 2 + "px)";
   }
 
-  // On garde la scène dans le cadre (pas de grand vide sur les côtés)
-  function borner() {
-    const l = cadre.clientWidth, h = cadre.clientHeight;
-    const pl = scene.largeur * base * zoom, ph = scene.hauteur * base * zoom;
-    dx = pl <= l ? (l - pl) / 2 : Math.min(0, Math.max(l - pl, dx));
-    dy = ph <= h ? (h - ph) / 2 : Math.min(0, Math.max(h - ph, dy));
-  }
-
-  function appliquer() {
-    borner();
-    plateau.style.transform = "translate(" + dx + "px," + dy + "px) scale(" + zoom + ")";
-    boutonZoom.classList.toggle("cache", zoom <= 1.01);
-  }
-
-  // Zoomer en gardant le point (cx, cy) du cadre sous le doigt
-  function zoomerVers(nouveauZoom, cx, cy) {
-    nouveauZoom = Math.max(1, Math.min(ZOOM_MAX, nouveauZoom));
-    dx = cx - (cx - dx) * (nouveauZoom / zoom);
-    dy = cy - (cy - dy) * (nouveauZoom / zoom);
-    zoom = nouveauZoom;
-    appliquer();
-  }
-
-  boutonZoom.addEventListener("click", function () { zoom = 1; appliquer(); });
-
-  // ----- Les doigts sur la scène -----
-  const doigts = new Map();
-  let geste = null;   // { type: "toucher" | "glisser" | "pincer", ... }
-
-  function pointDuCadre(e) {
-    const r = cadre.getBoundingClientRect();
-    return { x: e.clientX - r.left, y: e.clientY - r.top };
-  }
-
+  // Un toucher compte s'il ne glisse pas trop (sinon c'est un geste raté)
+  let depart = null;
   cadre.addEventListener("pointerdown", function (e) {
     if (e.target.closest("button")) return;
     Sons.preparer();
-    cadre.setPointerCapture(e.pointerId);
-    doigts.set(e.pointerId, pointDuCadre(e));
-    if (doigts.size === 1) {
-      const p = pointDuCadre(e);
-      geste = { type: "toucher", depart: p, dx0: dx, dy0: dy, debut: performance.now() };
-    } else if (doigts.size === 2) {
-      const [a, b] = Array.from(doigts.values());
-      geste = {
-        type: "pincer",
-        ecart0: Math.hypot(a.x - b.x, a.y - b.y) || 1,
-        zoom0: zoom,
-        milieu0: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 },
-        dx0: dx, dy0: dy
-      };
-    }
+    depart = e.isPrimary ? { x: e.clientX, y: e.clientY, id: e.pointerId } : null;
   });
-
-  cadre.addEventListener("pointermove", function (e) {
-    if (!doigts.has(e.pointerId) || !geste) return;
-    const p = pointDuCadre(e);
-    doigts.set(e.pointerId, p);
-
-    if (geste.type === "pincer" && doigts.size >= 2) {
-      const [a, b] = Array.from(doigts.values());
-      const ecart = Math.hypot(a.x - b.x, a.y - b.y);
-      const milieu = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
-      const z = Math.max(1, Math.min(ZOOM_MAX, geste.zoom0 * ecart / geste.ecart0));
-      // le point de l'image qui était sous les doigts reste sous les doigts
-      dx = milieu.x - (geste.milieu0.x - geste.dx0) * (z / geste.zoom0);
-      dy = milieu.y - (geste.milieu0.y - geste.dy0) * (z / geste.zoom0);
-      zoom = z;
-      appliquer();
-    } else if (geste.type === "toucher" || geste.type === "glisser") {
-      const ddx = p.x - geste.depart.x, ddy = p.y - geste.depart.y;
-      if (geste.type === "toucher" && Math.hypot(ddx, ddy) > 10) geste.type = "glisser";
-      if (geste.type === "glisser") {
-        dx = geste.dx0 + ddx;
-        dy = geste.dy0 + ddy;
-        appliquer();
-      }
-    }
-  });
-
-  function finDoigt(e) {
-    if (!doigts.has(e.pointerId)) return;
-    doigts.delete(e.pointerId);
-    if (geste && geste.type === "toucher" && doigts.size === 0 && e.type === "pointerup") {
+  cadre.addEventListener("pointerup", function (e) {
+    if (!depart || e.pointerId !== depart.id) return;
+    if (Math.hypot(e.clientX - depart.x, e.clientY - depart.y) <= 15) {
       toucherScene(e.clientX, e.clientY);
     }
-    if (doigts.size === 0) {
-      geste = null;
-    } else if (doigts.size === 1 && geste && geste.type === "pincer") {
-      // il reste un doigt : il peut continuer à faire glisser
-      const p = Array.from(doigts.values())[0];
-      geste = { type: "glisser", depart: p, dx0: dx, dy0: dy };
-    }
-  }
-  cadre.addEventListener("pointerup", finDoigt);
-  cadre.addEventListener("pointercancel", finDoigt);
-
-  // Sur ordinateur : la molette zoome
-  cadre.addEventListener("wheel", function (e) {
-    e.preventDefault();
-    const p = pointDuCadre(e);
-    zoomerVers(zoom * (e.deltaY < 0 ? 1.15 : 1 / 1.15), p.x, p.y);
-  }, { passive: false });
+    depart = null;
+  });
+  cadre.addEventListener("pointercancel", function () { depart = null; });
+  // pas de menu ni de loupe du navigateur sur un appui long
+  cadre.addEventListener("contextmenu", function (e) { e.preventDefault(); });
 
   // ===================================================================
   // 6. Toucher la scène : a-t-on trouvé un objet ?
@@ -422,8 +338,6 @@
     const restants = aTrouver.filter(function (o) { return !trouves.has(o.id); });
     if (!restants.length) return;
     const objet = restants[Math.floor(Math.random() * restants.length)];
-    zoom = 1;                          // on montre toute la scène pour voir la lueur
-    appliquer();
     indice = { objet: objet, ronds: entourer(objet, "lueur") };
     const li = liste.querySelector('li[data-id="' + objet.id + '"]');
     if (li) li.classList.add("indice");
