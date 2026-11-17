@@ -125,8 +125,8 @@ h1 span { color: var(--or); }
 .lueur {
   position: absolute;
   border-radius: 50%;
-  border: 5px solid var(--indice);
-  box-shadow: 0 0 25px 8px var(--indice);
+  border: 6px solid var(--indice);
+  box-shadow: 0 0 0 3px #fff, 0 0 30px 12px var(--indice), inset 0 0 20px 4px rgba(255, 225, 77, .6);
   animation: respire 1.4s ease-in-out infinite;
 }
 @keyframes respire {

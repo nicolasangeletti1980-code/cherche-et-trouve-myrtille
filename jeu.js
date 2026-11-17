@@ -364,14 +364,20 @@
   // Un rond (en % de la scène) autour de chaque zone de l'objet
   function entourer(objet, classe) {
     const ronds = [];
+    // L'indice doit se voir même quand toute la scène est affichée en petit :
+    // son rond fait au moins 70 pixels d'écran.
+    const minimum = classe === "lueur" ? 70 / base : 0;
     objet.zones.forEach(function (z) {
-      const marge = 0.18;
+      const marge = classe === "lueur" ? 0.35 : 0.18;
+      const l = Math.max(z[2] * (1 + 2 * marge), minimum);
+      const h = Math.max(z[3] * (1 + 2 * marge), minimum);
+      const cx = z[0] + z[2] / 2, cy = z[1] + z[3] / 2;
       const rond = document.createElement("div");
       rond.className = classe;
-      rond.style.left = ((z[0] - z[2] * marge) / scene.largeur * 100) + "%";
-      rond.style.top = ((z[1] - z[3] * marge) / scene.hauteur * 100) + "%";
-      rond.style.width = (z[2] * (1 + 2 * marge) / scene.largeur * 100) + "%";
-      rond.style.height = (z[3] * (1 + 2 * marge) / scene.hauteur * 100) + "%";
+      rond.style.left = ((cx - l / 2) / scene.largeur * 100) + "%";
+      rond.style.top = ((cy - h / 2) / scene.hauteur * 100) + "%";
+      rond.style.width = (l / scene.largeur * 100) + "%";
+      rond.style.height = (h / scene.hauteur * 100) + "%";
       calque.appendChild(rond);
       ronds.push(rond);
     });
