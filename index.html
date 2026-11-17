@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Les Cherche et Trouve de Myrtille</title>
+  <meta name="theme-color" content="#2f6b3a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icone-192.png">
+  <link rel="apple-touch-icon" href="icone-180.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== L'accueil : une tuile par thème ===== -->
+  <section id="accueil" class="ecran">
+    <h1>Les Cherche et Trouve<br><span>de Myrtille</span></h1>
+    <nav id="tuiles" class="tuiles" aria-label="Choisis un thème"></nav>
+  </section>
+
+  <!-- ===== Le jeu : la scène à gauche, les 12 objets à trouver à droite ===== -->
+  <section id="jeu" class="ecran cache">
+    <div id="cadre" class="cadre">
+      <!-- "plateau" bouge et grossit quand on zoome avec deux doigts -->
+      <div id="plateau" class="plateau">
+        <img id="image-scene" alt="" draggable="false">
+        <div id="calque" class="calque"></div>
+      </div>
+      <button id="bouton-maison" class="bouton-rond maison" aria-label="Retour à l'accueil">
+        <svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></svg>
+      </button>
+      <button id="bouton-zoom" class="bouton-rond zoom cache" aria-label="Voir toute l'image">
+        <svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6" fill="none" stroke-width="3"/><path d="M14.5 14.5 21 21M7 10h6" stroke-width="3" fill="none"/></svg>
+      </button>
+    </div>
+    <ul id="liste" class="liste" aria-label="Les objets à trouver"></ul>
+  </section>
+
+  <!-- ===== La victoire : feu d'artifice puis "Bravo Myrtille !" ===== -->
+  <canvas id="feu" class="feu cache"></canvas>
+  <div id="bravo" class="bravo cache" role="dialog" aria-live="polite">
+    <p class="bravo-titre">Bravo Myrtille&nbsp;!</p>
+    <div class="bravo-boutons">
+      <button id="bouton-rejouer" class="gros-bouton">Rejouer</button>
+      <button id="bouton-accueil" class="gros-bouton secondaire">Accueil</button>
+    </div>
+  </div>
+
+  <!-- ===== Si le téléphone est debout ===== -->
+  <div id="tourne" class="tourne">
+    <div class="tourne-telephone"></div>
+    <p>Tourne le téléphone</p>
+  </div>
+
+  <script src="donnees.js"></script>
+  <script src="voix/liste.js"></script>
+  <script src="sons.js"></script>
+  <script src="feu.js"></script>
+  <script src="jeu.js"></script>
+</body>
+</html>

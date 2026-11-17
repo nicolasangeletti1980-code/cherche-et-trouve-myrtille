@@ -1,0 +1,290 @@
+/* ===================================================================
+   Les Cherche et Trouve de Myrtille : l'apparence
+   =================================================================== */
+
+:root {
+  --fond: #2f6b3a;          /* vert jungle */
+  --fond-clair: #e9f7df;
+  --texte: #23301f;
+  --or: #ffd23f;
+  --trouve: #3ccf5a;
+  --indice: #ffe14d;
+  --rayon: 14px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: "Trebuchet MS", "Comic Sans MS", system-ui, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  overscroll-behavior: none;
+}
+
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible { outline: 4px solid var(--or); outline-offset: 3px; }
+
+.ecran { position: fixed; inset: 0; }
+.cache { display: none !important; }
+
+/* ===== L'accueil ===== */
+#accueil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4vh;
+  padding: 16px max(16px, env(safe-area-inset-right)) 16px max(16px, env(safe-area-inset-left));
+  background: radial-gradient(circle at 50% 30%, #4f9a4a, var(--fond));
+}
+h1 {
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  font-size: clamp(22px, 6vh, 44px);
+  line-height: 1.1;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, .25);
+}
+h1 span { color: var(--or); }
+
+.tuiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3vh 3vw;
+}
+.tuile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: clamp(120px, 36vh, 220px);
+  padding: 10px 10px 12px;
+  border: none;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, .25);
+  transition: transform .12s;
+}
+.tuile:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0, 0, 0, .25); }
+.tuile img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  object-fit: cover;
+}
+.tuile span { font-size: clamp(16px, 4.5vh, 24px); font-weight: bold; }
+
+/* ===== Le jeu ===== */
+#jeu {
+  display: flex;
+  background: #1d3f23;
+}
+
+/* La scène : tout l'espace à gauche de la liste */
+.cadre {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  touch-action: none;       /* c'est nous qui gérons le zoom et le glissé */
+}
+.plateau {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+.plateau img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.calque { position: absolute; inset: 0; pointer-events: none; }
+
+/* Un objet trouvé : un rond vert autour */
+.marque {
+  position: absolute;
+  border: 4px solid var(--trouve);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #fff, 0 0 18px var(--trouve);
+  animation: apparait .45s ease-out;
+}
+@keyframes apparait {
+  from { transform: scale(1.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* L'indice : un rond doré qui respire autour de l'objet */
+.lueur {
+  position: absolute;
+  border-radius: 50%;
+  border: 5px solid var(--indice);
+  box-shadow: 0 0 25px 8px var(--indice);
+  animation: respire 1.4s ease-in-out infinite;
+}
+@keyframes respire {
+  0%, 100% { transform: scale(1);    opacity: .55; }
+  50%      { transform: scale(1.25); opacity: 1; }
+}
+
+/* Un petit "non" quand on touche à côté */
+.rate {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, .8);
+  animation: rate .5s ease-out forwards;
+}
+@keyframes rate {
+  from { transform: scale(.4); opacity: 1; }
+  to   { transform: scale(1.3); opacity: 0; }
+}
+
+/* Les boutons ronds posés sur la scène */
+.bouton-rond {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .85);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .3);
+  display: grid;
+  place-items: center;
+}
+.bouton-rond svg { width: 28px; height: 28px; fill: #2f6b3a; stroke: #2f6b3a; }
+.maison { left: max(8px, env(safe-area-inset-left)); top: 8px; }
+.zoom   { left: max(8px, env(safe-area-inset-left)); bottom: 8px; }
+
+/* ===== La liste des 12 objets à trouver (2 colonnes x 6 lignes) ===== */
+.liste {
+  list-style: none;
+  margin: 0;
+  padding: 6px max(6px, env(safe-area-inset-right)) 6px 6px;
+  display: grid;
+  /* --vignette est calculée par jeu.js : 6 vignettes tiennent dans la hauteur */
+  grid-template-columns: repeat(2, var(--vignette, 54px));
+  grid-template-rows: repeat(6, var(--vignette, 54px));
+  gap: 5px;
+  align-content: center;
+  background: var(--fond-clair);
+}
+.liste li { position: relative; }
+.liste button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 3px solid #fff;
+  border-radius: var(--rayon);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .2);
+}
+.liste img { width: 100%; height: 100%; display: block; }
+
+/* Objet trouvé : la vignette pâlit et une coche verte apparaît */
+.liste li.trouve img { opacity: .35; filter: grayscale(.6); }
+.liste li.trouve::after {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%233ccf5a' stroke='white' stroke-width='2'/%3E%3Cpath d='M6.5 12.5l3.5 3.5 7-8' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  animation: apparait .4s ease-out;
+  pointer-events: none;
+}
+/* Objet de l'indice : la vignette se dandine */
+.liste li.indice button {
+  border-color: var(--indice);
+  animation: dandine .8s ease-in-out infinite;
+}
+@keyframes dandine {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+/* ===== La victoire ===== */
+.feu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  background: rgba(8, 12, 40, .55);   /* un ciel de nuit pour que les couleurs brillent */
+}
+.bravo {
+  position: fixed;
+  inset: 0;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5vh;
+  background: transparent;
+  animation: apparait .5s ease-out;
+}
+.bravo-titre {
+  margin: 0;
+  color: var(--or);
+  font-size: clamp(32px, 12vh, 80px);
+  font-weight: bold;
+  text-shadow: 0 4px 0 #a0522d, 0 0 30px rgba(255, 210, 63, .7);
+}
+.bravo-boutons { display: flex; gap: 20px; }
+.gros-bouton {
+  min-width: 150px;
+  padding: 14px 26px;
+  border: none;
+  border-radius: 999px;
+  background: var(--or);
+  font-size: clamp(18px, 5vh, 26px);
+  font-weight: bold;
+  box-shadow: 0 5px 0 #b8860b;
+}
+.gros-bouton.secondaire { background: #fff; box-shadow: 0 5px 0 #999; }
+.gros-bouton:active { transform: translateY(3px); box-shadow: 0 2px 0 #b8860b; }
+
+/* ===== "Tourne le téléphone" : seulement si l'écran est debout ===== */
+.tourne {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: var(--fond);
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
+}
+.tourne-telephone {
+  width: 70px;
+  height: 120px;
+  border: 6px solid #fff;
+  border-radius: 14px;
+  animation: tourne 2s ease-in-out infinite;
+}
+@keyframes tourne {
+  0%, 30%   { transform: rotate(0); }
+  60%, 100% { transform: rotate(-90deg); }
+}
+@media (orientation: portrait) and (max-width: 900px) {
+  .tourne { display: flex; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lueur, .liste li.indice button, .tourne-telephone { animation: none; }
+}

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "dino",
+    "nom": "Les Dinosaures",
+    "couleur": "#5aa64a",
+    "tuile": "triceratops",
+    "scenes": [
+      {"id": "dino1", "largeur": 1264, "hauteur": 1264}
+    ]
+  }
+]
