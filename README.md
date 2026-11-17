@@ -46,5 +46,6 @@ puis ouvrir http://localhost:8000.
 
 ## État actuel
 
-Scène provisoire `dino1` (carrée, 1264 × 1264, 33 objets repérés).
-Les scènes définitives (16:9, 2 par thème) sont en cours de fabrication.
+Thème Dinosaures : 2 scènes en paysage, `dino1` « jungle et volcan » (1500 × 844,
+30 objets) et `dino2` « bord du lac » (1671 × 941, 29 objets), images fournies par
+papa (faites avec ChatGPT), positions vérifiées en dessinant les cadres.

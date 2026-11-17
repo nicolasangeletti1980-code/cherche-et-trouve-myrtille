@@ -8,18 +8,18 @@ const THEMES = [
   "scenes": [
    {
     "id": "dino1",
-    "largeur": 1264,
-    "hauteur": 1264,
+    "largeur": 1500,
+    "hauteur": 844,
     "objets": [
      {
-      "id": "perroquet",
-      "nom": "le perroquet",
+      "id": "toile",
+      "nom": "la toile d'araignée",
       "zones": [
        [
-        80,
-        95,
-        75,
-        95
+        30,
+        40,
+        125,
+        150
        ]
       ]
      },
@@ -28,129 +28,9 @@ const THEMES = [
       "nom": "le petit singe",
       "zones": [
        [
-        268,
-        90,
-        60,
-        140
-       ]
-      ]
-     },
-     {
-      "id": "toile",
-      "nom": "la toile d'araignée",
-      "zones": [
-       [
-        370,
-        60,
-        100,
-        170
-       ]
-      ]
-     },
-     {
-      "id": "papillon",
-      "nom": "le papillon bleu",
-      "zones": [
-       [
-        480,
-        200,
-        60,
-        65
-       ]
-      ]
-     },
-     {
-      "id": "bananes",
-      "nom": "les bananes",
-      "zones": [
-       [
-        115,
-        255,
-        80,
-        100
-       ]
-      ]
-     },
-     {
-      "id": "nid",
-      "nom": "le nid d'œufs",
-      "zones": [
-       [
-        245,
-        385,
-        100,
-        85
-       ]
-      ]
-     },
-     {
-      "id": "oeuf",
-      "nom": "le bébé dans son œuf",
-      "zones": [
-       [
-        370,
-        445,
-        58,
-        80
-       ]
-      ]
-     },
-     {
-      "id": "stegosaure",
-      "nom": "le stégosaure",
-      "zones": [
-       [
-        475,
-        405,
-        220,
-        140
-       ]
-      ]
-     },
-     {
-      "id": "triceratops",
-      "nom": "le tricératops",
-      "zones": [
-       [
-        95,
-        445,
-        200,
-        210
-       ]
-      ]
-     },
-     {
-      "id": "volcan",
-      "nom": "le volcan",
-      "zones": [
-       [
-        632,
-        105,
-        180,
-        150
-       ]
-      ]
-     },
-     {
-      "id": "libellule",
-      "nom": "la libellule",
-      "zones": [
-       [
-        600,
-        200,
-        80,
-        80
-       ]
-      ]
-     },
-     {
-      "id": "pteranodon",
-      "nom": "le ptéranodon",
-      "zones": [
-       [
-        812,
-        65,
-        150,
+        215,
+        20,
+        155,
         155
        ]
       ]
@@ -160,136 +40,148 @@ const THEMES = [
       "nom": "le diplodocus",
       "zones": [
        [
-        950,
-        100,
-        105,
-        95
+        455,
+        40,
+        135,
+        75
        ],
        [
-        1040,
-        180,
-        95,
-        270
+        360,
+        100,
+        170,
+        170
+       ]
+      ]
+     },
+     {
+      "id": "volcan",
+      "nom": "le volcan",
+      "zones": [
+       [
+        720,
+        60,
+        190,
+        130
+       ]
+      ]
+     },
+     {
+      "id": "pteranodon",
+      "nom": "le ptéranodon",
+      "zones": [
+       [
+        905,
+        5,
+        260,
+        120
+       ]
+      ]
+     },
+     {
+      "id": "perroquet",
+      "nom": "le perroquet",
+      "zones": [
+       [
+        1310,
+        20,
+        170,
+        210
        ]
       ]
      },
      {
       "id": "coco",
-      "nom": "la noix de coco",
-      "zones": [
-       [
-        1105,
-        125,
-        50,
-        65
-       ]
-      ]
-     },
-     {
-      "id": "pommedepin",
-      "nom": "la pomme de pin",
-      "zones": [
-       [
-        1182,
-        180,
-        55,
-        80
-       ]
-      ]
-     },
-     {
-      "id": "yeux",
-      "nom": "les yeux dans la grotte",
-      "zones": [
-       [
-        855,
-        425,
-        55,
-        55
-       ]
-      ]
-     },
-     {
-      "id": "griffes",
-      "nom": "les griffes",
-      "zones": [
-       [
-        1010,
-        450,
-        85,
-        65
-       ]
-      ]
-     },
-     {
-      "id": "lezard",
-      "nom": "le lézard",
+      "nom": "les noix de coco",
       "zones": [
        [
         1180,
-        530,
-        70,
-        195
+        170,
+        95,
+        75
        ]
       ]
      },
      {
-      "id": "escargot",
-      "nom": "l'escargot",
+      "id": "bananes",
+      "nom": "les bananes",
       "zones": [
        [
-        25,
-        610,
-        50,
-        100
+        1265,
+        225,
+        100,
+        95
        ]
       ]
      },
      {
-      "id": "tortue",
-      "nom": "la tortue",
+      "id": "nid",
+      "nom": "le nid aux œufs bleus",
       "zones": [
        [
-        325,
-        600,
-        80,
-        70
-       ]
-      ]
-     },
-     {
-      "id": "poisson",
-      "nom": "le poisson",
-      "zones": [
-       [
-        468,
-        662,
-        60,
-        85
-       ]
-      ]
-     },
-     {
-      "id": "crabe",
-      "nom": "le crabe",
-      "zones": [
-       [
-        548,
-        775,
-        65,
+        980,
+        190,
+        110,
         60
        ]
       ]
      },
      {
-      "id": "empreinte",
-      "nom": "l'empreinte de dinosaure",
+      "id": "trex",
+      "nom": "le T-rex",
       "zones": [
        [
+        50,
+        245,
+        255,
+        195
+       ]
+      ]
+     },
+     {
+      "id": "triceratops",
+      "nom": "le tricératops",
+      "zones": [
+       [
+        335,
+        300,
+        205,
+        170
+       ]
+      ]
+     },
+     {
+      "id": "stegosaure",
+      "nom": "le stégosaure",
+      "zones": [
+       [
+        1030,
+        315,
+        205,
+        120
+       ]
+      ]
+     },
+     {
+      "id": "libellule",
+      "nom": "la libellule",
+      "zones": [
+       [
+        930,
         430,
-        895,
-        75,
-        90
+        120,
+        65
+       ]
+      ]
+     },
+     {
+      "id": "papillon",
+      "nom": "le papillon bleu",
+      "zones": [
+       [
+        230,
+        450,
+        95,
+        110
        ]
       ]
      },
@@ -298,10 +190,82 @@ const THEMES = [
       "nom": "la coccinelle",
       "zones": [
        [
-        200,
-        935,
-        40,
-        45
+        378,
+        518,
+        52,
+        44
+       ]
+      ]
+     },
+     {
+      "id": "poisson",
+      "nom": "le poisson orange",
+      "zones": [
+       [
+        700,
+        498,
+        72,
+        58
+       ]
+      ]
+     },
+     {
+      "id": "tortue",
+      "nom": "la tortue",
+      "zones": [
+       [
+        840,
+        555,
+        140,
+        62
+       ]
+      ]
+     },
+     {
+      "id": "ankylosaure",
+      "nom": "l'ankylosaure",
+      "zones": [
+       [
+        1220,
+        465,
+        165,
+        120
+       ]
+      ]
+     },
+     {
+      "id": "scarabee",
+      "nom": "le scarabée",
+      "zones": [
+       [
+        20,
+        588,
+        92,
+        65
+       ]
+      ]
+     },
+     {
+      "id": "bebe",
+      "nom": "le bébé dinosaure dans son œuf",
+      "zones": [
+       [
+        150,
+        598,
+        152,
+        150
+       ]
+      ]
+     },
+     {
+      "id": "champignon",
+      "nom": "le champignon",
+      "zones": [
+       [
+        5,
+        698,
+        148,
+        146
        ]
       ]
      },
@@ -311,93 +275,9 @@ const THEMES = [
       "zones": [
        [
         290,
-        975,
-        130,
-        90
-       ]
-      ]
-     },
-     {
-      "id": "plume",
-      "nom": "la plume",
-      "zones": [
-       [
-        545,
-        1005,
-        90,
-        145
-       ]
-      ]
-     },
-     {
-      "id": "dinoviolet",
-      "nom": "le dinosaure violet",
-      "zones": [
-       [
-        705,
-        595,
-        185,
-        180
-       ]
-      ]
-     },
-     {
-      "id": "scarabee",
-      "nom": "le scarabée",
-      "zones": [
-       [
-        815,
-        855,
-        58,
-        58
-       ]
-      ]
-     },
-     {
-      "id": "ankylosaure",
-      "nom": "l'ankylosaure",
-      "zones": [
-       [
-        915,
-        840,
-        150,
-        140
-       ]
-      ]
-     },
-     {
-      "id": "champignon",
-      "nom": "le champignon",
-      "zones": [
-       [
-        710,
-        955,
-        72,
-        105
-       ]
-      ]
-     },
-     {
-      "id": "grenouille",
-      "nom": "la grenouille",
-      "zones": [
-       [
-        1025,
-        1015,
-        58,
+        715,
+        120,
         72
-       ]
-      ]
-     },
-     {
-      "id": "fleur",
-      "nom": "la fleur rose",
-      "zones": [
-       [
-        1180,
-        825,
-        65,
-        88
        ]
       ]
      },
@@ -406,10 +286,455 @@ const THEMES = [
       "nom": "le coquillage",
       "zones": [
        [
+        418,
+        635,
+        135,
+        112
+       ]
+      ]
+     },
+     {
+      "id": "escargot",
+      "nom": "l'escargot",
+      "zones": [
+       [
+        660,
+        598,
+        88,
+        58
+       ]
+      ]
+     },
+     {
+      "id": "crabe",
+      "nom": "le crabe",
+      "zones": [
+       [
+        790,
+        680,
+        125,
+        85
+       ]
+      ]
+     },
+     {
+      "id": "empreinte",
+      "nom": "l'empreinte de dinosaure",
+      "zones": [
+       [
+        1010,
+        700,
+        82,
+        82
+       ]
+      ]
+     },
+     {
+      "id": "pommedepin",
+      "nom": "la pomme de pin",
+      "zones": [
+       [
+        1195,
+        615,
+        85,
+        68
+       ]
+      ]
+     },
+     {
+      "id": "fleur",
+      "nom": "la grande fleur rose",
+      "zones": [
+       [
+        1375,
+        550,
+        125,
+        115
+       ]
+      ]
+     },
+     {
+      "id": "plume",
+      "nom": "la plume",
+      "zones": [
+       [
+        1318,
+        710,
+        102,
+        92
+       ]
+      ]
+     },
+     {
+      "id": "lezard",
+      "nom": "le lézard vert",
+      "zones": [
+       [
+        480,
+        545,
+        120,
+        65
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "dino2",
+    "largeur": 1671,
+    "hauteur": 941,
+    "objets": [
+     {
+      "id": "coco",
+      "nom": "les noix de coco",
+      "zones": [
+       [
+        243,
+        48,
+        122,
+        92
+       ]
+      ]
+     },
+     {
+      "id": "oiseau",
+      "nom": "le petit oiseau",
+      "zones": [
+       [
+        218,
+        132,
+        110,
+        90
+       ]
+      ]
+     },
+     {
+      "id": "pterorouge",
+      "nom": "le ptérosaure rouge",
+      "zones": [
+       [
+        490,
+        5,
+        315,
+        140
+       ]
+      ]
+     },
+     {
+      "id": "pterobleu",
+      "nom": "le ptérosaure bleu",
+      "zones": [
+       [
+        925,
+        5,
+        200,
+        95
+       ]
+      ]
+     },
+     {
+      "id": "longcou",
+      "nom": "le dinosaure qui boit",
+      "zones": [
+       [
+        1290,
+        120,
+        330,
+        215
+       ],
+       [
+        1220,
+        240,
+        112,
+        140
+       ]
+      ]
+     },
+     {
+      "id": "triceratops",
+      "nom": "le tricératops",
+      "zones": [
+       [
+        190,
+        265,
+        225,
+        155
+       ]
+      ]
+     },
+     {
+      "id": "papillon",
+      "nom": "le papillon jaune",
+      "zones": [
+       [
+        25,
+        360,
+        140,
+        95
+       ]
+      ]
+     },
+     {
+      "id": "raptor",
+      "nom": "le petit raptor",
+      "zones": [
+       [
+        300,
+        420,
+        295,
+        170
+       ]
+      ]
+     },
+     {
+      "id": "plesiosaure",
+      "nom": "le plésiosaure",
+      "zones": [
+       [
+        700,
+        345,
+        370,
+        125
+       ]
+      ]
+     },
+     {
+      "id": "poisson",
+      "nom": "le poisson qui saute",
+      "zones": [
+       [
+        1110,
+        408,
+        88,
+        90
+       ]
+      ]
+     },
+     {
+      "id": "radeau",
+      "nom": "le radeau",
+      "zones": [
+       [
+        1310,
+        390,
+        240,
+        75
+       ]
+      ]
+     },
+     {
+      "id": "grenouille",
+      "nom": "la grenouille",
+      "zones": [
+       [
+        775,
+        533,
+        92,
+        90
+       ]
+      ]
+     },
+     {
+      "id": "tortue",
+      "nom": "la tortue",
+      "zones": [
+       [
+        1025,
+        513,
+        165,
+        70
+       ]
+      ]
+     },
+     {
+      "id": "libellule",
+      "nom": "la libellule",
+      "zones": [
+       [
+        1390,
+        500,
+        155,
+        100
+       ]
+      ]
+     },
+     {
+      "id": "ankylosaure",
+      "nom": "l'ankylosaure",
+      "zones": [
+       [
+        0,
+        525,
+        365,
+        175
+       ]
+      ]
+     },
+     {
+      "id": "escargot",
+      "nom": "l'escargot",
+      "zones": [
+       [
+        485,
+        608,
+        120,
+        82
+       ]
+      ]
+     },
+     {
+      "id": "scarabee",
+      "nom": "le scarabée",
+      "zones": [
+       [
+        245,
+        698,
+        95,
+        65
+       ]
+      ]
+     },
+     {
+      "id": "champignon",
+      "nom": "le champignon",
+      "zones": [
+       [
+        5,
+        745,
+        175,
+        196
+       ]
+      ]
+     },
+     {
+      "id": "ammonite",
+      "nom": "le coquillage en spirale",
+      "zones": [
+       [
+        340,
+        750,
+        130,
+        110
+       ]
+      ]
+     },
+     {
+      "id": "oeuf",
+      "nom": "l'œuf cassé",
+      "zones": [
+       [
+        155,
+        818,
+        100,
+        105
+       ]
+      ]
+     },
+     {
+      "id": "os",
+      "nom": "l'os",
+      "zones": [
+       [
+        495,
+        805,
+        125,
+        62
+       ]
+      ]
+     },
+     {
+      "id": "bebe",
+      "nom": "le bébé dinosaure",
+      "zones": [
+       [
+        610,
+        688,
+        240,
+        112
+       ]
+      ]
+     },
+     {
+      "id": "crabe",
+      "nom": "le crabe",
+      "zones": [
+       [
+        885,
+        733,
+        125,
+        92
+       ]
+      ]
+     },
+     {
+      "id": "etoile",
+      "nom": "l'étoile de mer",
+      "zones": [
+       [
+        818,
+        826,
+        104,
+        84
+       ]
+      ]
+     },
+     {
+      "id": "perle",
+      "nom": "le coquillage avec la perle",
+      "zones": [
+       [
+        1015,
+        812,
+        145,
+        100
+       ]
+      ]
+     },
+     {
+      "id": "empreinte",
+      "nom": "l'empreinte de dinosaure",
+      "zones": [
+       [
         1160,
-        980,
-        75,
-        135
+        778,
+        98,
+        88
+       ]
+      ]
+     },
+     {
+      "id": "plume",
+      "nom": "la plume",
+      "zones": [
+       [
+        1310,
+        733,
+        122,
+        107
+       ]
+      ]
+     },
+     {
+      "id": "pommedepin",
+      "nom": "la pomme de pin",
+      "zones": [
+       [
+        1415,
+        628,
+        92,
+        78
+       ]
+      ]
+     },
+     {
+      "id": "fleur",
+      "nom": "la fleur blanche",
+      "zones": [
+       [
+        1528,
+        743,
+        143,
+        137
        ]
       ]
      }
