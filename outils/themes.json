@@ -5,7 +5,16 @@
     "couleur": "#5aa64a",
     "tuile": "triceratops",
     "scenes": [
-      {"id": "dino1", "largeur": 1264, "hauteur": 1264}
+      {
+        "id": "dino1",
+        "largeur": 1500,
+        "hauteur": 844
+      },
+      {
+        "id": "dino2",
+        "largeur": 1671,
+        "hauteur": 941
+      }
     ]
   }
 ]
