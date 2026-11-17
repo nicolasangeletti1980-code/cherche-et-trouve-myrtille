@@ -46,6 +46,12 @@ puis ouvrir http://localhost:8000.
 
 ## État actuel
 
-Thème Dinosaures : 2 scènes en paysage, `dino1` « jungle et volcan » (1500 × 844,
-30 objets) et `dino2` « bord du lac » (1671 × 941, 29 objets), images fournies par
-papa (faites avec ChatGPT), positions vérifiées en dessinant les cadres.
+Thème Dinosaures : 2 scènes très chargées, images fournies par papa (faites avec
+ChatGPT), chaque objet repéré à la main et vérifié en dessinant les cadres :
+
+- `dino3` « jungle et volcan » : 1500 × 1000, 56 objets uniques
+  (abeilles et fleurs écartées : présentes plusieurs fois) ;
+- `dino4` « bord du lac » : 1125 × 750, 58 objets uniques
+  (nénuphars et roseaux écartés).
+
+L'icône vient d'une ancienne scène (`outils/icone-source.png`).

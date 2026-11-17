@@ -2,10 +2,12 @@
 #  - l'image de la scène en WebP (plus légère),
 #  - une vignette carrée par objet (pour la liste "à trouver").
 # Utilisation : python3 outils/preparer_scene.py dino1
-import json, sys
+import json, os, sys
 from PIL import Image
 
 nom = sys.argv[1]
+os.makedirs("scenes", exist_ok=True)
+os.makedirs(f"vignettes/{nom}", exist_ok=True)
 source = Image.open(f"outils/{nom}-source.png").convert("RGB")
 source.save(f"scenes/{nom}.webp", "WEBP", quality=88, method=6)
 

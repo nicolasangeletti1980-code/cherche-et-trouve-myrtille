@@ -6,14 +6,14 @@
     "tuile": "triceratops",
     "scenes": [
       {
-        "id": "dino1",
+        "id": "dino3",
         "largeur": 1500,
-        "hauteur": 844
+        "hauteur": 1000
       },
       {
-        "id": "dino2",
-        "largeur": 1671,
-        "hauteur": 941
+        "id": "dino4",
+        "largeur": 1125,
+        "hauteur": 750
       }
     ]
   }
