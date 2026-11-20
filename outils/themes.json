@@ -16,5 +16,23 @@
         "hauteur": 750
       }
     ]
+  },
+  {
+    "id": "mer",
+    "nom": "La Mer",
+    "couleur": "#2f8fd6",
+    "tuile": "poissonclown",
+    "scenes": [
+      {
+        "id": "mer1",
+        "largeur": 1536,
+        "hauteur": 1024
+      },
+      {
+        "id": "mer2",
+        "largeur": 1536,
+        "hauteur": 1024
+      }
+    ]
   }
 ]

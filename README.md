@@ -54,4 +54,10 @@ ChatGPT), chaque objet repéré à la main et vérifié en dessinant les cadres 
 - `dino4` « bord du lac » : 1125 × 750, 58 objets uniques
   (nénuphars et roseaux écartés).
 
+Thème la Mer : `mer1` « le récif de corail » (1536 × 1024, 54 objets ; crevettes
+écartées, présentes deux fois) et `mer2` « l'épave des pirates » (1536 × 1024,
+58 objets ; petits coquillages écartés, présents partout).
+
+Prompts des scènes à venir : `outils/prompts-chatgpt.md`.
+
 L'icône vient d'une ancienne scène (`outils/icone-source.png`).

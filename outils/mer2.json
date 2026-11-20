@@ -1,0 +1,640 @@
+{
+ "baleine": {
+  "nom": "la baleine",
+  "zones": [
+   [
+    190,
+    5,
+    350,
+    120
+   ]
+  ]
+ },
+ "raie": {
+  "nom": "la raie",
+  "zones": [
+   [
+    80,
+    55,
+    180,
+    100
+   ]
+  ]
+ },
+ "meduse": {
+  "nom": "la méduse",
+  "zones": [
+   [
+    18,
+    115,
+    90,
+    125
+   ]
+  ]
+ },
+ "perroquet": {
+  "nom": "le perroquet",
+  "zones": [
+   [
+    365,
+    130,
+    100,
+    140
+   ]
+  ]
+ },
+ "phoque": {
+  "nom": "le phoque",
+  "zones": [
+   [
+    20,
+    235,
+    170,
+    85
+   ]
+  ]
+ },
+ "espadon": {
+  "nom": "l'espadon",
+  "zones": [
+   [
+    190,
+    195,
+    175,
+    100
+   ]
+  ]
+ },
+ "pingouin": {
+  "nom": "le pingouin",
+  "zones": [
+   [
+    40,
+    330,
+    65,
+    90
+   ]
+  ]
+ },
+ "hippocampe": {
+  "nom": "l'hippocampe",
+  "zones": [
+   [
+    215,
+    315,
+    60,
+    105
+   ]
+  ]
+ },
+ "gouvernail": {
+  "nom": "la barre du bateau",
+  "zones": [
+   [
+    340,
+    395,
+    135,
+    135
+   ]
+  ]
+ },
+ "ballon": {
+  "nom": "le ballon rouge",
+  "zones": [
+   [
+    620,
+    5,
+    58,
+    80
+   ]
+  ]
+ },
+ "cerfvolant": {
+  "nom": "le cerf-volant",
+  "zones": [
+   [
+    540,
+    50,
+    65,
+    90
+   ]
+  ]
+ },
+ "montre": {
+  "nom": "la montre",
+  "zones": [
+   [
+    660,
+    120,
+    65,
+    80
+   ]
+  ]
+ },
+ "cloche": {
+  "nom": "la cloche",
+  "zones": [
+   [
+    775,
+    165,
+    50,
+    95
+   ]
+  ]
+ },
+ "drapeau": {
+  "nom": "le drapeau des pirates",
+  "zones": [
+   [
+    835,
+    25,
+    110,
+    85
+   ]
+  ]
+ },
+ "plongeur": {
+  "nom": "le plongeur",
+  "zones": [
+   [
+    890,
+    140,
+    85,
+    100
+   ]
+  ]
+ },
+ "chapeau": {
+  "nom": "le chapeau de pirate",
+  "zones": [
+   [
+    960,
+    240,
+    75,
+    40
+   ]
+  ]
+ },
+ "murene": {
+  "nom": "la murène",
+  "zones": [
+   [
+    545,
+    385,
+    140,
+    60
+   ]
+  ]
+ },
+ "trompette": {
+  "nom": "la trompette",
+  "zones": [
+   [
+    945,
+    435,
+    60,
+    30
+   ]
+  ]
+ },
+ "dauphin": {
+  "nom": "le dauphin",
+  "zones": [
+   [
+    960,
+    10,
+    120,
+    95
+   ]
+  ]
+ },
+ "narval": {
+  "nom": "le narval",
+  "zones": [
+   [
+    1000,
+    110,
+    135,
+    95
+   ]
+  ]
+ },
+ "sousmarin": {
+  "nom": "le sous-marin jaune",
+  "zones": [
+   [
+    1180,
+    65,
+    155,
+    110
+   ]
+  ]
+ },
+ "requin": {
+  "nom": "le requin",
+  "zones": [
+   [
+    1245,
+    10,
+    225,
+    105
+   ]
+  ]
+ },
+ "couronne": {
+  "nom": "la couronne",
+  "zones": [
+   [
+    1225,
+    180,
+    70,
+    50
+   ]
+  ]
+ },
+ "tortue": {
+  "nom": "la tortue de mer",
+  "zones": [
+   [
+    1380,
+    155,
+    135,
+    90
+   ]
+  ]
+ },
+ "guitare": {
+  "nom": "la guitare",
+  "zones": [
+   [
+    1035,
+    250,
+    105,
+    130
+   ]
+  ]
+ },
+ "longuevue": {
+  "nom": "la longue-vue",
+  "zones": [
+   [
+    1195,
+    330,
+    80,
+    32
+   ]
+  ]
+ },
+ "poissonglobe": {
+  "nom": "le poisson-globe",
+  "zones": [
+   [
+    1390,
+    255,
+    90,
+    80
+   ]
+  ]
+ },
+ "poissonclown": {
+  "nom": "le poisson-clown",
+  "zones": [
+   [
+    1275,
+    425,
+    75,
+    40
+   ]
+  ]
+ },
+ "baudroie": {
+  "nom": "le poisson à la lampe",
+  "zones": [
+   [
+    1150,
+    455,
+    95,
+    57
+   ]
+  ]
+ },
+ "tonneau": {
+  "nom": "le tonneau",
+  "zones": [
+   [
+    1395,
+    428,
+    95,
+    90
+   ]
+  ]
+ },
+ "parasol": {
+  "nom": "le parasol",
+  "zones": [
+   [
+    0,
+    545,
+    165,
+    150
+   ]
+  ]
+ },
+ "crevette": {
+  "nom": "la crevette",
+  "zones": [
+   [
+    90,
+    745,
+    80,
+    50
+   ]
+  ]
+ },
+ "coffre": {
+  "nom": "le coffre au trésor",
+  "zones": [
+   [
+    300,
+    590,
+    165,
+    140
+   ]
+  ]
+ },
+ "coupe": {
+  "nom": "la coupe en or",
+  "zones": [
+   [
+    470,
+    655,
+    45,
+    70
+   ]
+  ]
+ },
+ "balle": {
+  "nom": "le ballon de plage",
+  "zones": [
+   [
+    220,
+    755,
+    115,
+    95
+   ]
+  ]
+ },
+ "canard": {
+  "nom": "le canard en plastique",
+  "zones": [
+   [
+    275,
+    860,
+    75,
+    60
+   ]
+  ]
+ },
+ "nounours": {
+  "nom": "le nounours",
+  "zones": [
+   [
+    408,
+    805,
+    95,
+    110
+   ]
+  ]
+ },
+ "pieuvre": {
+  "nom": "la pieuvre",
+  "zones": [
+   [
+    445,
+    515,
+    90,
+    90
+   ]
+  ]
+ },
+ "carte": {
+  "nom": "la carte au trésor",
+  "zones": [
+   [
+    460,
+    692,
+    95,
+    60
+   ]
+  ]
+ },
+ "boussole": {
+  "nom": "la boussole",
+  "zones": [
+   [
+    618,
+    745,
+    62,
+    55
+   ]
+  ]
+ },
+ "sabre": {
+  "nom": "le sabre",
+  "zones": [
+   [
+    695,
+    612,
+    40,
+    125
+   ]
+  ]
+ },
+ "canon": {
+  "nom": "le canon",
+  "zones": [
+   [
+    770,
+    560,
+    145,
+    90
+   ]
+  ]
+ },
+ "crabe": {
+  "nom": "le crabe",
+  "zones": [
+   [
+    760,
+    712,
+    105,
+    75
+   ]
+  ]
+ },
+ "bateau": {
+  "nom": "le petit bateau",
+  "zones": [
+   [
+    555,
+    815,
+    85,
+    95
+   ]
+  ]
+ },
+ "etoile": {
+  "nom": "l'étoile de mer",
+  "zones": [
+   [
+    700,
+    825,
+    85,
+    75
+   ]
+  ]
+ },
+ "sirene": {
+  "nom": "la sirène",
+  "zones": [
+   [
+    955,
+    505,
+    60,
+    95
+   ]
+  ]
+ },
+ "perle": {
+  "nom": "le coquillage avec la perle",
+  "zones": [
+   [
+    910,
+    645,
+    115,
+    75
+   ]
+  ]
+ },
+ "cle": {
+  "nom": "la clé",
+  "zones": [
+   [
+    950,
+    768,
+    75,
+    32
+   ]
+  ]
+ },
+ "bernard": {
+  "nom": "le bernard-l'ermite",
+  "zones": [
+   [
+    925,
+    840,
+    100,
+    70
+   ]
+  ]
+ },
+ "banane": {
+  "nom": "la banane",
+  "zones": [
+   [
+    870,
+    880,
+    80,
+    70
+   ]
+  ]
+ },
+ "ancre": {
+  "nom": "l'ancre",
+  "zones": [
+   [
+    1062,
+    568,
+    120,
+    155
+   ]
+  ]
+ },
+ "glace": {
+  "nom": "la glace",
+  "zones": [
+   [
+    1253,
+    668,
+    45,
+    90
+   ]
+  ]
+ },
+ "homard": {
+  "nom": "le homard",
+  "zones": [
+   [
+    1375,
+    555,
+    85,
+    110
+   ]
+  ]
+ },
+ "lunettes": {
+  "nom": "les lunettes de soleil",
+  "zones": [
+   [
+    1410,
+    705,
+    95,
+    35
+   ]
+  ]
+ },
+ "theiere": {
+  "nom": "la théière",
+  "zones": [
+   [
+    1300,
+    740,
+    90,
+    60
+   ]
+  ]
+ },
+ "botte": {
+  "nom": "la chaussure",
+  "zones": [
+   [
+    1130,
+    782,
+    85,
+    90
+   ]
+  ]
+ },
+ "pomme": {
+  "nom": "la pomme",
+  "zones": [
+   [
+    1053,
+    893,
+    55,
+    55
+   ]
+  ]
+ },
+ "carotte": {
+  "nom": "la carotte",
+  "zones": [
+   [
+    1160,
+    900,
+    70,
+    65
+   ]
+  ]
+ }
+}

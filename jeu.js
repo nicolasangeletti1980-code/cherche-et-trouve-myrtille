@@ -101,6 +101,7 @@
   function construireAccueil() {
     const tuiles = $("tuiles");
     tuiles.innerHTML = "";
+    tuiles.style.setProperty("--nb", THEMES.length);
     THEMES.forEach(function (t) {
       const bouton = document.createElement("button");
       bouton.className = "tuile";

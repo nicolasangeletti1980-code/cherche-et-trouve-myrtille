@@ -54,7 +54,7 @@ h1 span { color: var(--or); }
 
 .tuiles {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 3vh 3vw;
 }
@@ -63,7 +63,8 @@ h1 span { color: var(--or); }
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  width: clamp(120px, 36vh, 220px);
+  /* --nb (nombre de thèmes) est donné par jeu.js : toutes les tuiles tiennent sur une ligne */
+  width: clamp(84px, min(36vh, calc((100vw - 40px) / var(--nb, 3) - 3vw)), 220px);
   padding: 10px 10px 12px;
   border: none;
   border-radius: 22px;
@@ -78,7 +79,7 @@ h1 span { color: var(--or); }
   border-radius: 16px;
   object-fit: cover;
 }
-.tuile span { font-size: clamp(16px, 4.5vh, 24px); font-weight: bold; }
+.tuile span { font-size: clamp(13px, 4.2vh, 24px); font-weight: bold; text-align: center; line-height: 1.15; }
 
 /* ===== Le jeu ===== */
 #jeu {
